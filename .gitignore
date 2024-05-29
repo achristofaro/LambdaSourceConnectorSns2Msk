@@ -1,3 +1,117 @@
+<<<<<<< HEAD
+=======
+
+# Created by https://www.gitignore.io/api/osx,linux,python,windows,pycharm,visualstudiocode
+
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+### OSX ###
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### PyCharm ###
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+
+# User-specific stuff:
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+
+# Sensitive or high-churn files:
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.xml
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+
+# Gradle:
+.idea/**/gradle.xml
+.idea/**/libraries
+
+# CMake
+cmake-build-debug/
+
+# Mongo Explorer plugin:
+.idea/**/mongoSettings.xml
+
+## File-based project format:
+*.iws
+
+## Plugin-specific files:
+
+# IntelliJ
+/out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Cursive Clojure plugin
+.idea/replstate.xml
+
+# Ruby plugin and RubyMine
+/.rakeTasks
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+### PyCharm Patch ###
+# Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
+
+# *.iml
+# modules.xml
+# .idea/misc.xml
+# *.ipr
+
+# Sonarlint plugin
+.idea/sonarlint
+
+### Python ###
+>>>>>>> aad43f6 (info: initial commit.)
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -20,11 +134,17 @@ parts/
 sdist/
 var/
 wheels/
+<<<<<<< HEAD
 share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
 MANIFEST
+=======
+*.egg-info/
+.installed.cfg
+*.egg
+>>>>>>> aad43f6 (info: initial commit.)
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -39,6 +159,7 @@ pip-delete-this-directory.txt
 # Unit test / coverage reports
 htmlcov/
 .tox/
+<<<<<<< HEAD
 .nox/
 .coverage
 .coverage.*
@@ -50,17 +171,30 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
+=======
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+>>>>>>> aad43f6 (info: initial commit.)
 
 # Translations
 *.mo
 *.pot
 
+<<<<<<< HEAD
 # Django stuff:
 *.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
+=======
+>>>>>>> aad43f6 (info: initial commit.)
 # Flask stuff:
 instance/
 .webassets-cache
@@ -72,12 +206,16 @@ instance/
 docs/_build/
 
 # PyBuilder
+<<<<<<< HEAD
 .pybuilder/
+=======
+>>>>>>> aad43f6 (info: initial commit.)
 target/
 
 # Jupyter Notebook
 .ipynb_checkpoints
 
+<<<<<<< HEAD
 # IPython
 profile_default/
 ipython_config.py
@@ -117,6 +255,13 @@ __pypackages__/
 # Celery stuff
 celerybeat-schedule
 celerybeat.pid
+=======
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule.*
+>>>>>>> aad43f6 (info: initial commit.)
 
 # SageMath parsed files
 *.sage.py
@@ -142,6 +287,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+<<<<<<< HEAD
 .dmypy.json
 dmypy.json
 
@@ -160,3 +306,40 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+=======
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history
+
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# Build folder
+
+*/build/*
+
+# End of https://www.gitignore.io/api/osx,linux,python,windows,pycharm,visualstudiocode
+>>>>>>> aad43f6 (info: initial commit.)

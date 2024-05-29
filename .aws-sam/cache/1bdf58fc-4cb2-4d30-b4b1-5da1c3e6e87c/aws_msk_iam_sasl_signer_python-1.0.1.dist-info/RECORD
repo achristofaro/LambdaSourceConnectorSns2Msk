@@ -1,0 +1,9 @@
+aws_msk_iam_sasl_signer/MSKAuthTokenProvider.py,sha256=7Kkff-bArM7qzYFeV7zA2us_k_IPaYe8PuwOxZfEXVg,9521
+aws_msk_iam_sasl_signer/__init__.py,sha256=-VeEtegg0dDxM9DVGhnLQmssH_fS5ulMTUYp_ZBor-4,194
+aws_msk_iam_sasl_signer/cli.py,sha256=k-Ld1PceRmC9-AvFawb0PGKwTvYUFkuC1YR_jUmJEME,1850
+aws_msk_iam_sasl_signer_python-1.0.1.dist-info/LICENSE,sha256=c4Kxz3Eeenx6-YFuDge0m5HnFJt8bTRyJfmIAPyx8cI,11356
+aws_msk_iam_sasl_signer_python-1.0.1.dist-info/METADATA,sha256=2RIKZY5IXnNOW68YZylUlZQb1K5wFGFVnZ17Oay8m7o,11223
+aws_msk_iam_sasl_signer_python-1.0.1.dist-info/WHEEL,sha256=-G_t0oGuE7UD0DrSpVZnq1hHMBV9DD2XkS5v7XpmTnk,110
+aws_msk_iam_sasl_signer_python-1.0.1.dist-info/entry_points.txt,sha256=bWpF-vCSaznnoCxkIH4RPOo9u9B_UzF13RIlXUNpOsg,79
+aws_msk_iam_sasl_signer_python-1.0.1.dist-info/top_level.txt,sha256=do8Ti-Og0PJz-wI86L_4MatkHbK1LlI-KKKdUdXEGZQ,24
+aws_msk_iam_sasl_signer_python-1.0.1.dist-info/RECORD,,
