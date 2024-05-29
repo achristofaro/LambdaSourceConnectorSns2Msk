@@ -1,7 +1,7 @@
-import json
 from domain.interfaces.publish_interface import PublishInterface
 from infrastructure.kafka.producer import KafkaProducer
 from infrastructure.log.logger import Logger
+
 
 def send_response(success, status_code, message, response_data=None):
     return {
@@ -9,7 +9,7 @@ def send_response(success, status_code, message, response_data=None):
         'statusCode': status_code,
         'message': message,
         'responseData': response_data
-}
+        }
 
 
 def lambda_handler(event, context):
@@ -20,16 +20,16 @@ def lambda_handler(event, context):
     try:
         producer = KafkaProducer()
         publisher = PublishInterface(producer)
-        
+
         # Processa cada registro de evento recebido
         for record in event['records']:
             logger.info('Publishing message to Kafka topic: ', record)
             publisher.publish(record)
-    
+
         # Deixe uma margem de tempo para evitar o término abrupto da função
         time_limit = context.get_remaining_time_in_millis()
         safe_margin = 500  # 500 ms de margem de segurança
-    
+
         if time_limit > safe_margin:
             # Aguardar a entrega de todas as mensagens, mas não ultrapasse o tempo limite
             producer.flush(timeout=(time_limit - safe_margin) / 1000.0)
