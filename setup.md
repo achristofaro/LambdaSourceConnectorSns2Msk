@@ -15,6 +15,27 @@ sudo rm -r -v sam-installation/
 sudo rm -r sam-installation/
 ```
 
+### Kafka Client
+
+```sh
+wget https://archive.apache.org/dist/kafka/3.6.0/kafka_2.12-3.6.0.tgz
+curl -k -L "https://archive.apache.org/dist/kafka/3.6.0/kafka_2.12-3.6.0.tgz" -o "kafka_2.12-3.6.0.tgz"
+
+tar -xzf kafka_2.12-3.6.0.tgz
+
+kafka_{version}/libs
+curl -k -L "https://github.com/aws/aws-msk-iam-auth/releases/download/v2.1.0/aws-msk-iam-auth-2.1.0-all.jar" -o "aws-msk-iam-auth-2.1.0-all.jar"
+
+# kafka_{versio}/bin
+client.properties
+
+security.protocol=SASL_SSL
+sasl.mechanism=AWS_MSK_IAM
+sasl.jaas.config=software.amazon.msk.auth.iam.IAMLoginModule required;
+sasl.client.callback.handler.class=software.amazon.msk.auth.iam.IAMClientCallbackHandler
+
+```
+
 ### Python Upgrade -> 3.11.9
 ```sh
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
@@ -98,8 +119,8 @@ pip install confluent_kafka
 
 ### Export Proxy Variables
 ```sh
-export HTTP_PROXY=http://10.0.0.24:8080
-export HTTPS_PROXY=http://10.0.0.24:8080
+export http_proxy=http://10.0.0.24:8080
+export https_proxy=http://10.0.0.24:8080
 ```
 
 ### Python env
@@ -121,11 +142,43 @@ docker system prune --all --force
 vi client.properties
 ```
 ```sh
-export BS=
+export BS=b-1.awsdadosmskb3linhablc1.3xo0va.c2.kafka.sa-east-1.amazonaws.com:9098,b-3.awsdadosmskb3linhablc1.3xo0va.c2.kafka.sa-east-1.amazonaws.com:9098,b-2.awsdadosmskb3linhablc1.3xo0va.c2.kafka.sa-east-1.amazonaws.com:9098
 ```
 ```sh
 ./kafka-topics.sh --bootstrap-server $BS \
 --command-config client.properties --list | grep rf-*
+
+./kafka-topics.sh --bootstrap-server $BS \
+--command-config client.properties \
+--describe \
+--topic aws-msk-blc-caphub-assestscdb-V1-dev-n
+
+./kafka-topics.sh --bootstrap-server $BS \
+--command-config client.properties \
+--describe \
+--topic aws-msk-blc-caphub-assestscdb-V1-dev-n
+
+./kafka-topics.sh --bootstrap-server $BS \
+--command-config client.properties \
+--describe \
+--topic aws-msk-blc-caphub-assestscdb-V1-dl-dev-n
+
+./kafka-topics.sh --bootstrap-server $BS \
+--command-config client.properties \
+--delete \
+--topic rf-cdb-ifa
+
+
+./kafka-topics.sh --create --bootstrap-server $BS \
+--command-config client.properties \
+--replication-factor 3 --partitions 4 \
+--topic aws-msk-blc-caphub-assestscdb-V1-dev-n
+
+./kafka-topics.sh --create --bootstrap-server $BS \
+--command-config client.properties \
+--replication-factor 3 --partitions 3 \
+--topic aws-msk-blc-caphub-assestscdb-V1-dl-dev-n
+
 ```
 ```sh
 ./kafka-topics.sh --create --bootstrap-server $BS \
