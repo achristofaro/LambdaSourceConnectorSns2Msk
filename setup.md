@@ -2,6 +2,14 @@
 
 ## Cloud9 IDE Setup
 
+### Git commands
+```sh
+git -c http.sslVerify=false clone https://github.com/achristofaro/LambdaSourceConnectorSns2Msk.git
+git add .
+git commit -m "infor: xxxx"
+git push origin master
+```
+
 ### SAM Update
 https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html#install-sam-cli-instructions
 
@@ -121,6 +129,7 @@ pip install confluent_kafka
 ```sh
 export http_proxy=http://10.0.0.24:8080
 export https_proxy=http://10.0.0.24:8080
+
 ```
 
 ### Python env
