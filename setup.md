@@ -14,7 +14,6 @@ git push origin master
 https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html#install-sam-cli-instructions
 
 ```sh
-
 curl -k -L "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip" -o "aws-sam-cli-linux-x86_64.zip"
 unzip -q aws-sam-cli-linux-x86_64.zip -d sam-installation
 sudo ./sam-installation/install --update
@@ -22,7 +21,6 @@ sudo ./sam-installation/install --update
 sudo rm -f aws-sam-cli-linux-x86_64.zip
 sudo rm -r -v sam-installation/
 sudo rm -r sam-installation/
-
 ```
 
 ### Kafka Client
