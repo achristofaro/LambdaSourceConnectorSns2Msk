@@ -127,8 +127,8 @@ pip install confluent_kafka
 
 ### Export Proxy Variables
 ```sh
-export http_proxy=http://10.0.0.24:8080
-export https_proxy=http://10.0.0.24:8080
+export HTTP_PROXY=http://10.0.0.24:8080
+export HTTPS_PROXY=http://10.0.0.24:8080
 
 ```
 
@@ -154,8 +154,7 @@ vi client.properties
 export BS=b-1.awsdadosmskb3linhablc1.3xo0va.c2.kafka.sa-east-1.amazonaws.com:9098,b-3.awsdadosmskb3linhablc1.3xo0va.c2.kafka.sa-east-1.amazonaws.com:9098,b-2.awsdadosmskb3linhablc1.3xo0va.c2.kafka.sa-east-1.amazonaws.com:9098
 ```
 ```sh
-./kafka-topics.sh --bootstrap-server $BS \
---command-config client.properties --list | grep rf-*
+./kafka-topics.sh --bootstrap-server $BS --command-config client.properties --list | grep rf-*
 
 ./kafka-topics.sh --bootstrap-server $BS \
 --command-config client.properties \
