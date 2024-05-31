@@ -1,8 +1,8 @@
 class Message:
-  
+
     def __init__(self, data: dict):
         self.data = data
-    
+
     def validate(self):
         if not isinstance(self.data, dict):
             raise ValueError('Message must be a dictionary')

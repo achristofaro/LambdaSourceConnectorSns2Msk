@@ -1,10 +1,10 @@
-import os
 import socket
 from infrastructure.aws.oauth import IamOAuth
 from helpers.config import ConfigLoader
 
+
 class KafkaConfig():
-    
+
     def __init__(self,):
         self._config = ConfigLoader.get_config()
         self._kafka_config = self._config['KAFKA']

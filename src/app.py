@@ -4,12 +4,10 @@ from infrastructure.log.logger import Logger
 
 
 def send_response(success, status_code, message, response_data=None):
-    return {
-        'success': success,
-        'statusCode': status_code,
-        'message': message,
-        'responseData': response_data
-        }
+    return {'success': success,
+            'statusCode': status_code,
+            'message': message,
+            'responseData': response_data}
 
 
 def lambda_handler(event, context):
