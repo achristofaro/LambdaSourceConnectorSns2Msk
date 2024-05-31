@@ -1,31 +1,24 @@
 {
-    "Records": [
-        {
-            "EventSource": "aws:sns",
-            "EventVersion": "1.0",
-            "EventSubscriptionArn": "arn:{partition}:sns:EXAMPLE",
-            "Sns": {
-                "Type": "Notification",
-                "MessageId": "95df01b4-ee98-5cb9-9903-4c221d41eb5e",
-                "TopicArn": "arn:{partition}:sns:EXAMPLE",
-                "Subject": "TestInvoke",
-                "Message": "Hello from SNS!",
-                "Timestamp": "1970-01-01T00:00:00Z",
-                "SignatureVersion": "1",
-                "Signature": "EXAMPLE",
-                "SigningCertUrl": "EXAMPLE",
-                "UnsubscribeUrl": "EXAMPLE",
-                "MessageAttributes": {
-                    "Test": {
-                        "Type": "String",
-                        "Value": "TestString"
-                    },
-                    "TestBinary": {
-                        "Type": "Binary",
-                        "Value": "TestBinary"
-                    }
-                }
-            }
-        }
+    "Records":[
+       {
+          "EventSource":"aws:sns",
+          "EventVersion":"1.0",
+          "EventSubscriptionArn":"arn:aws:sns:sa-east-1:",
+          "Sns":{
+             "Type":"Notification",
+             "MessageId":"b9a881c3-f4e9-5a1a-90c0-df1015e39b3d",
+             "TopicArn":"arn:aws:sns:sa-east-1",
+             "Subject":null,
+             "Message":"{\"event_id\": \"0fe62aff-83f8-49bc-a157-2bb0ad9e6dd4\", \"event_type\": \"PDD_asset_registration_success\", \"org_id\": \"PDD-TN-c20e93c8-6f6d-4ed5-9d2b-b3990dd696a8\", \"schema_version\": 1, \"cid\": \"PDD001000191000000000010017081\", \"timestamp\": \"2024-05-31T14:29:30.701409\", \"domain\": \"assets\", \"data\": {\"asset\": {\"id\": \"750277123821\", \"asset_type\": \"cdb\", \"issuer_id\": \"12345678\", \"registration_mode\": \"single\", \"issuing_date\": \"2024-05-31\", \"maturity_date\": \"2025-05-31\", \"issued_units\": 7008817.31, \"unit_value\": 7441.71, \"index_type\": \"di\", \"index_rate\": 952.47, \"currency\": \"986\", \"isin_code\": \"\", \"early_redemption_terms\": \"no\", \"additional_data\": {\"accrual_frequency\": \"daily\"}}, \"quota\": {\"id\": \"c69a3ffa-8fb6-497b-ae30-b06dd36bfc03\", \"customer_name\": \"Cliente PJ 00000003000559\", \"customer_document_number\": \"00000003000559\", \"type\": \"legal\", \"purchased_units\": 8306566.95, \"external_id\": \"001000191000000000010017081\"}, \"created_at\": \"2024-05-31T14:29:30.701505\"}}",
+             "Timestamp":"2024-05-31T14:29:30.981Z",
+             "SignatureVersion":"1",
+             "Signature":"XKWk50/vIJpWaZB80HR7+/bSf2r6N3Ul52fdYgQQK2BsKJH1P9Fdx8Oq03qvZOWCJa/GN4aggJ+OxqGB16O802l+K52QX/pAeJR8Y3a6Cmmm4EGk0927MdINNDvJZqSPqY0ruZt3+rYejZrk9Kgr9BdzTpzYqyJkDiDcagHP77mL9xtUa+32Y9otz5qvIO1G4m/mMeMF6yVYy0RxU23NOwa7faJ2EEM+cY3vBoL9cDR7qc/d+BBGoJpsuAG49MoY6TZelupTV32R75O9TfF4Qt3oqVyeOUIhZ7wiz2jFES1KPTvk4iapnryxMdPofCZtC6zh6Q/4nVSG5JZbW2tNHg==",
+             "SigningCertUrl":"https://sns.sa-east-1.amazonaws.com/SimpleNotificationService",
+             "UnsubscribeUrl":"https://sns.sa-east-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:sa-east-1",
+             "MessageAttributes":{
+                
+             }
+          }
+       }
     ]
-}
+ }
