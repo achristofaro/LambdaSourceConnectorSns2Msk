@@ -1,5 +1,5 @@
 from aws_msk_iam_sasl_signer import MSKAuthTokenProvider
-from infrastructure.log.logger import Logger
+from adapters.log.logger import Logger
 
 
 class IamOAuth:

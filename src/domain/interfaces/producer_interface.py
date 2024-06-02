@@ -2,8 +2,8 @@ from abc import ABC, abstractmethod
 from domain.entities.message import Message
 
 
-class PublishInterface(ABC):
+class ProducerInterface(ABC):
 
     @abstractmethod
-    def publish(self, message: Message) -> None:
+    def produce(self, message: Message) -> None:
         raise NotImplementedError

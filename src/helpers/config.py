@@ -1,9 +1,9 @@
 import os
-from infrastructure.aws.parameter_store import AWSParameterStore
+from adapters.aws.parameter_store import AWSParameterStore
 
 
 class ConfigLoader:
-    _config = None
+    _config = {}
 
     def __init__(self,):
         self._parameter_store = AWSParameterStore()
@@ -27,7 +27,7 @@ class ConfigLoader:
         }
 
     @classmethod
-    def get_config(cls,):
+    def get_config(cls,) -> dict:
         if cls._config is None:
             loader = cls()
             loader.__load()

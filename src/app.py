@@ -1,23 +1,17 @@
-from domain.interfaces.publish_interface import PublishInterface
-from infrastructure.kafka.producer import KafkaProducer
-from infrastructure.log.logger import Logger
-
-
-def send_response(success, status_code, message, response_data=None):
-    return {'success': success,
-            'statusCode': status_code,
-            'message': message,
-            'responseData': response_data}
+from adapters.log.logger import Logger
+from adapters.kafka.producer import KafkaProducer
+from domain.use_case.publish_message import PublishMessage
+from helpers.response_handler import ResponseHandler
 
 
 def lambda_handler(event, context):
     logger = Logger.configure_logging()
+    response = ResponseHandler.send_response
 
     logger.info(f'Event received: {event}')
-
     try:
         producer = KafkaProducer()
-        publisher = PublishInterface(producer)
+        publisher = PublishMessage(producer)
 
         # Processa cada registro de evento recebido
         for record in event['records']:
@@ -33,13 +27,13 @@ def lambda_handler(event, context):
             producer.flush(timeout=(time_limit - safe_margin) / 1000.0)
         else:
             logger.exception('Time limit reached, not flushing messages.')
-            return send_response(False, 400, 'Time limit reached, not flushing messages.')
+            return response(False, 400, 'Time limit reached, not flushing messages.')
 
     except Exception as ex:
         logger.exception(f'Unhandled exception: {ex}')
-        return send_response(False, 500, 'Internal Error', str(ex))
+        return response(False, 500, 'Internal Error', str(ex))
 
-    return send_response(True, 200, 'All messages published to MSK successfully.')
+    return response(True, 200, 'All messages published to MSK successfully.')
 
 
 if __name__ == '__main__':
