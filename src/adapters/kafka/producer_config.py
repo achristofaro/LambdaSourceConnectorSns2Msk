@@ -3,27 +3,28 @@ from adapters.aws.oauth import IamOAuth
 from helpers.config import ConfigLoader
 
 
-class KafkaConfig():
-
-    def __init__(self,):
+class KafkaConfig:
+    def __init__(self):
         self._config = ConfigLoader.get_config()
-        self._kafka_config = self._config['KAFKA']
-        self._aws_config = self._config['AWS']
+        self._kafka_config = self._config.get('KAFKA', {})
+        self._aws_config = self._config.get('AWS', {})
 
-    def get_kafka_config(self,) -> dict[str, str]:
+    def get_kafka_config(self) -> dict[str, str]:
         return self._kafka_config
 
-    def get_kafka_producer_config(self,) -> dict:
-
+    def get_kafka_producer_config(self) -> dict[str, object]:
         return {
-            'bootstrap.servers': self._kafka_config['bootstrap_servers'],
-            'client.id': f"{self._kafka_config['client_id']}: {socket.gethostname()}",
+            'bootstrap.servers': self._kafka_config.get('bootstrap_servers'),
+            'client.id': f"{self._kafka_config.get('client_id')}: {socket.gethostname()}",
             'socket.timeout.ms': 1000,
             'socket.keepalive.enable': True,
             'api.version.request': True,
             'security.protocol': 'SASL_SSL',
             'sasl.mechanisms': 'OAUTHBEARER',
-            'oauth_cb': lambda x: IamOAuth.get_token(region=self._aws_config['region'], role_arn=self._aws_config['role_arn']),
+            'oauth_cb': lambda: IamOAuth.get_token(
+                region=self._aws_config.get('region'),
+                role_arn=self._aws_config.get('role_arn')
+            ),
             'batch.num.messages': 100,
             'linger.ms': 5,
             'batch.size': 32 * 1024,

@@ -1,6 +1,6 @@
 from domain.interfaces.publish_interface import PublishInterface
 from domain.interfaces.producer_interface import ProducerInterface
-from entities.message import Message
+from domain.entities.message import Message
 
 
 class PublishMessage(PublishInterface):
