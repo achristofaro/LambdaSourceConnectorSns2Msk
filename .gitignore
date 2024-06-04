@@ -212,4 +212,7 @@ samconfig.toml
 .history
 .ionide
 
+### Custom Project ###
+setup.md
+
 # End of https://www.toptal.com/developers/gitignore/api/sam+config,python,cloud9,serverless

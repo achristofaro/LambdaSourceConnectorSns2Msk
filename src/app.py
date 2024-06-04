@@ -12,7 +12,7 @@ def lambda_handler(event, context):
     num_records = len(records)
 
     logger.info(f'Event received: {event}')
-    logger.info(f'Number of records received: {num_records}')    
+    logger.info(f'Number of records received: {num_records}')
 
     try:
         producer = KafkaProducer()
@@ -28,7 +28,7 @@ def lambda_handler(event, context):
 
         if time_limit > safe_margin:
             # Aguardar a entrega de todas as mensagens, mas não ultrapasse o tempo limite
-            logger.info(f'Flushing {len(producer)} messages...')
+            logger.info(f'Flushing {producer.len()} messages...')
             producer.flush(timeout=(time_limit - safe_margin) / 1000.0)
         else:
             logger.warning('Time limit reached, not flushing messages.')
@@ -38,4 +38,4 @@ def lambda_handler(event, context):
         logger.exception(f'Unhandled exception: {repr(e)}')
         return response(False, 500, 'Internal Error', repr(e))
 
-    return response(True, 200, f'{num_records} message(s) received and {len(producer)} ')
+    return response(True, 200, f'{num_records} message(s) received and {producer.len()} ')

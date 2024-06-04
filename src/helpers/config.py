@@ -5,7 +5,7 @@ from adapters.aws.parameter_store import AWSParameterStore
 
 
 class ConfigLoader:
-    _config : Optional[dict] = {}
+    _config: Optional[dict] = {}
 
     def __init__(self,):
         self._parameter_store = AWSParameterStore()

@@ -15,7 +15,7 @@ class KafkaProducer(ProducerInterface):
         self._topic = self._config.get_kafka_config().get('topic')
         self._logger = Logger.get_logger()
         self._string_serializer = StringSerializer('utf_8')
-        
+
     def __acked(self, err, msg):
         if err is not None:
             self._logger.exception(f'Delivery failed for message {msg.key()}: {err}')
@@ -25,7 +25,7 @@ class KafkaProducer(ProducerInterface):
                 f'Message {msg.key()} successfully produced to topic {msg.topic()} [{msg.partition()}] at offset {msg.offset()}'
             )
 
-    def produce(self, message):
+    def produce(self, message) -> None:
         self._logger.info(f'Sending message to topic {self._topic}')
 
         try:
@@ -46,5 +46,8 @@ class KafkaProducer(ProducerInterface):
             self._logger.exception(f'Unexpected error: {e}')
             raise
 
-    def flush(self, timeout: float):
+    def flush(self, timeout: float) -> None:
         self._producer.flush(timeout)
+
+    def len(self,) -> int:
+        return len(self._producer)
