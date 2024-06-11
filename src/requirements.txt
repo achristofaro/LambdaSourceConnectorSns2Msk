@@ -1,3 +1,4 @@
 boto3
 aws-msk-iam-sasl-signer-python
 confluent_kafka
+python-dotenv

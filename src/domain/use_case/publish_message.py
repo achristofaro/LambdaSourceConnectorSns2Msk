@@ -1,11 +1,12 @@
-from domain.interfaces.publish_interface import PublishInterface
+from typing import Any
+
 from domain.interfaces.producer_interface import ProducerInterface
-from domain.entities.message import Message
+from domain.interfaces.publish_interface import PublishInterface
 
 
 class PublishMessage(PublishInterface):
-    def __init__(self, producer: ProducerInterface):
+    def __init__(self, producer: ProducerInterface) -> None:
         self._producer = producer
 
-    def publish(self, message: Message):
+    def publish(self, message: Any):
         self._producer.produce(message)

@@ -1,4 +1,5 @@
 from aws_msk_iam_sasl_signer import MSKAuthTokenProvider
+
 from adapters.log.logger import Logger
 
 
@@ -10,8 +11,10 @@ class IamOAuth:
 
         try:
             if "arn_role" in kwargs:
-                auth_token, expiry_ms = MSKAuthTokenProvider.generate_auth_token_from_role_arn(
-                    kwargs["region"], kwargs["arn_role"]
+                auth_token, expiry_ms = (
+                    MSKAuthTokenProvider.generate_auth_token_from_role_arn(
+                        kwargs["region"], kwargs["arn_role"]
+                    )
                 )
             else:
                 auth_token, expiry_ms = MSKAuthTokenProvider.generate_auth_token(
@@ -21,5 +24,5 @@ class IamOAuth:
             return auth_token, expiry_ms / 1000
 
         except Exception as ex:
-            logger.exception(f'Unexpected error during auth token generation: {ex}')
+            logger.exception(f"Unexpected error during auth token generation: {ex}")
             raise
