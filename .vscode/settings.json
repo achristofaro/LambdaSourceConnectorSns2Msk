@@ -19,4 +19,14 @@
       "black"
     ],
     "python.analysis.autoImportCompletions": true,
+    "material-icon-theme.folders.associations": {
+      "entities": "api",
+      "use_cases": "rules",
+      "interfaces": "rules",
+      "adapters": "pipe",
+      "aws": "pipe",
+      "kafka": "pipe",
+      "log": "pipe",
+      "docker": "docker"
+    }
 }

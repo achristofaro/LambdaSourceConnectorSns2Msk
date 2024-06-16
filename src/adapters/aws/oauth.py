@@ -7,22 +7,22 @@ class IamOAuth:
 
     @staticmethod
     def get_token(**kwargs) -> tuple[str, float]:
-        logger = Logger.get_logger()
+        __logger = Logger.get_logger()
 
         try:
             if "arn_role" in kwargs:
                 auth_token, expiry_ms = (
                     MSKAuthTokenProvider.generate_auth_token_from_role_arn(
-                        kwargs["region"], kwargs["arn_role"]
+                        kwargs["region"], kwargs["role_arn"]
                     )
                 )
             else:
                 auth_token, expiry_ms = MSKAuthTokenProvider.generate_auth_token(
-                    kwargs["region"]
+                    kwargs["region"], aws_debug_creds=True
                 )
 
             return auth_token, expiry_ms / 1000
 
         except Exception as ex:
-            logger.exception(f"Unexpected error during auth token generation: {ex}")
+            __logger.exception(f"Unexpected error during auth token generation: {ex}")
             raise

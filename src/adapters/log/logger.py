@@ -3,7 +3,7 @@ from typing import Optional
 
 
 class Logger:
-    _instance: Optional[logging.Logger] = None
+    __instance: Optional[logging.Logger] = None
 
     def __configure_logging(
         self, level: int = logging.INFO, log_file: Optional[str] = None
@@ -32,13 +32,13 @@ class Logger:
             file_handler.setFormatter(formatter)
             logger.addHandler(file_handler)
 
-        Logger._instance = logger
+        Logger.__instance = logger
         return logger
 
     @classmethod
     def get_logger(
         cls, level: int = logging.INFO, log_file: Optional[str] = None
     ) -> logging.Logger:
-        if cls._instance is None:
-            cls._instance = cls().__configure_logging(level, log_file)
-        return cls._instance
+        if cls.__instance is None:
+            cls.__instance = cls().__configure_logging(level, log_file)
+        return cls.__instance

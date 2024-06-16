@@ -12,41 +12,41 @@ class ConfigLoader:
 
     def __init__(self) -> None:
         load_dotenv(find_dotenv())
-        self._parameter_store = AWSParameterStore()
+        self.__parameter_store = AWSParameterStore()
 
     def __load(self) -> dict[str, Any]:
         self._config = {
             "KAFKA": {
                 "bootstrap_servers": os.getenv("KAFKA_BROKER")
-                or self._parameter_store.get_parameter(
+                or self.__parameter_store.get_parameter(
                     "/lambdaSourceConnectorSns2Msk/kafka/broker"
                 ),
                 "topic": os.getenv("KAFKA_TOPIC")
-                or self._parameter_store.get_parameter(
+                or self.__parameter_store.get_parameter(
                     "/lambdaSourceConnectorSns2Msk/kafka/topic"
                 ),
                 "topic_dlq": os.getenv("KAFKA_TOPIC")
-                or self._parameter_store.get_parameter(
+                or self.__parameter_store.get_parameter(
                     "/lambdaSourceConnectorSns2Msk/kafka/topic_dlq"
                 ),
                 "client_id": os.getenv("KAFKA_CLIENT_ID")
-                or self._parameter_store.get_parameter(
+                or self.__parameter_store.get_parameter(
                     "/lambdaSourceConnectorSns2Msk/kafka/client_id"
                 ),
             },
             "AWS": {
                 "region": os.getenv("AWS_REGION")
-                or self._parameter_store.get_parameter(
-                    "/lambdaSourceConnectorSns2Msk/kafka/aws_region"
+                or self.__parameter_store.get_parameter(
+                    "/lambdaSourceConnectorSns2Msk/aws/region"
                 ),
                 "role_arn": os.getenv("AWS_ROLE_ARN")
-                or self._parameter_store.get_parameter(
-                    "/lambdaSourceConnectorSns2Msk/kafka/kafka_acks"
+                or self.__parameter_store.get_parameter(
+                    "/lambdaSourceConnectorSns2Msk/aws/role_arn"
                 ),
             },
             "LOGGING": {
                 "level": os.getenv("LOGGING_LEVEL", logging.INFO)
-                or self._parameter_store.get_parameter(
+                or self.__parameter_store.get_parameter(
                     "/lambdaSourceConnectorSns2Msk/kafka/logging_level"
                 )
             },
